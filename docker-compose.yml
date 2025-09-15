@@ -1,0 +1,8 @@
+services:
+  trader:
+    build: .
+    env_file: .env
+    restart: unless-stopped
+    # 필요 시 호스트 시간대 동기화
+    # environment:
+    #   - TZ=America/New_York
