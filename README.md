@@ -93,20 +93,47 @@ while RUN:
 # 1) 코드 받기
 git clone <your repo> && cd alpaca-autotrader
 
-# 2) 환경변수 설정
-cp .env.example .env
-# .env 에 Alpaca 키/시크릿 입력 (paper=true 권장)
+# 2) 가상 환경 생성 (python version 3.12)
+~/.pyenv/versions/3.12.6/bin/python3 -m venv .alpha
 
-# 3) 로컬 실행(테스트)
-pip install -r requirements.txt
-python bot.py
+# 3) 가상 환경 활성화
+source .alpha/bin/activate  
+
+# 4) 의존성 관리
+poetry lock  
+poetry install --no-root 
+poetry add ~~
+
+# 5) 실행
+poetry run python app/bot.py
+
+# 6) 가상환경 비활성화
+deactivate
 ```
 
-### Docker 상시 실행
+### Docker 상시 실행 (Poetry 기반)
 ```bash
-# 4) Docker로 상시 실행
+# 7) Docker로 상시 실행
 docker compose up -d
 docker compose logs -f trader
+```
+
+### Poetry 명령어 참고
+```bash
+# 가상환경 활성화
+poetry shell
+
+# 의존성 추가
+poetry add <package-name>
+
+# 의존성 업데이트
+poetry update
+
+# 가상환경 정보 확인
+poetry env info
+
+# 의존성 동기화
+poetry install --sync
 ```
 
 ## 📁 프로젝트 구조

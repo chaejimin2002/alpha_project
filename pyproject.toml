@@ -1,0 +1,20 @@
+[project]
+name = "alpha-project"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "채지민",email = "chaejimin2002@naver.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0.0"
+dependencies = [
+    "alpaca-py (==0.29.0)",
+    "pandas (==2.2.2)",
+    "numpy (==1.26.4)",
+    "python-dotenv (==1.0.1)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
